@@ -1,0 +1,43 @@
+name: Rerun Kaggle Notebook
+
+on:
+  push:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.9'
+
+      - name: Install dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run notebook
+        run: |
+          # Install necessary packages for running the notebook
+          pip install nbconvert
+          jupyter nbconvert --to html your_notebook.ipynb
+
+      - name: Log to Wandb
+        run: |
+          # Install Wandb
+          pip install wandb
+          # Run script to log metrics to Wandb
+          python log_to_wandb.py
+
+      - name: Commit results
+        run: |
+          git config --local user.email "actions@github.com"
+          git config --local user.name "GitHub Actions"
+          git add .
+          git commit -m "Update notebook output" || echo "No changes to commit"
+          git push
