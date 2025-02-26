@@ -1,6 +1,6 @@
 FROM python:3.11
 
-WORKDIR /app
+WORKDIR /'\wsl.localhostUbuntu-22.04homettalukdarMLPR_5_LOCAL_Ubuntu'
 
 COPY requirements.txt .
 
