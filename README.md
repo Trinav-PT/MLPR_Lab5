@@ -1,4 +1,7 @@
-*Steps:*
+#wandb Dashboard:
+<img width="951" alt="Screenshot 2025-02-26 161642" src="https://github.com/user-attachments/assets/04735e6b-8b8a-438a-bd62-7c313b31bc94" />
+
+#Steps:
 
 - The given image is loaded using OpenCV’s cv2.imread().
 - The image is converted to grayscale using cv2.cvtColor() for face detection.
@@ -18,7 +21,7 @@
 
 
 
-*Observations:*
+#Observations:
 
 - Faces with similar skin tones and lighting conditions tend to cluster together, showing that Hue and Saturation are effective for grouping faces.
 - The white balance and lighting variations in the image slightly affect clustering, causing minor misclassifications near cluster boundaries.
@@ -27,7 +30,7 @@
 
 
 
-*Questions and Answers:*
+#Questions and Answers:
 
 Q1. What are the common distance metrics used in distance-based classification algorithms?
 
